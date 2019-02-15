@@ -64,6 +64,15 @@ the collection.
     $collection->loadMissing('users.comments');
     $collection->loadMissing('admins');
 
+#### `add($item)`
+
+The `add` method appends the `$item` to the `items` property within the collection.
+
+    $result = User::find(1);
+    $result->add(User::find(2));
+     
+   
+
 
 ### The Base Collection
 
