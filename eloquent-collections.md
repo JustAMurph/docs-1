@@ -48,6 +48,14 @@ the `$keys` using `whereIn()`.
   
     $users->find(1);
 
+#### `load($relations)`
+
+The `load` method attempts to eager load a set of relationships onto the 
+existing collection.
+
+    $collection->load('users.comments');
+    $collection->load('users', 'admins');
+
 
 ### The Base Collection
 
