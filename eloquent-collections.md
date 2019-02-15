@@ -105,6 +105,16 @@ relationships.
     $users->fresh();
     
     $users->fresh('comments');
+    
+#### `getDictionary($items = null)`
+
+Return a dictionary of models key'd by the primary key. 
+
+    $users->getDictionary()
+    {
+        1 => User,
+        2 => User
+    }
 
 ### The Base Collection
 
