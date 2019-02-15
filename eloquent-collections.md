@@ -71,7 +71,24 @@ The `add` method appends the `$item` to the `items` property within the collecti
     $result = User::find(1);
     $result->add(User::find(2));
      
-   
+#### `contains($key, $operator = null, $value = null)`
+
+The `contains` method provides a convenient way of checking if a `Model` instance
+is within the collection. 
+
+If all three parameters are passed, this method behaves similar to `Illuminate\Support\Collection`.
+
+If `$key` is passed, the following occurs:
+
+If `$key` is an instance of a model, `contains`
+will compare the `$key` to each `Model` in the collection using `Model::is()`. 
+Otherwise `$key` will be compared to each `Model`'s `Model::getKey()`.
+
+    $users->contains(1);
+    // True
+    
+    $users->contains(User::find(1));
+    // True
 
 
 ### The Base Collection
