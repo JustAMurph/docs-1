@@ -90,6 +90,13 @@ Otherwise `$key` will be compared to each `Model`'s `Model::getKey()`.
     $users->contains(User::find(1));
     // True
 
+#### `modelKeys`
+
+`modelKeys` returns all primary keys found within the collection. Uses: `Model::getKey()`.
+
+    $users->modelKeys()
+    // [1,2,3,4,5]
+
 
 ### The Base Collection
 
