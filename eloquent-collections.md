@@ -56,6 +56,14 @@ existing collection.
     $collection->load('users.comments');
     $collection->load('users', 'admins');
 
+#### `loadMissing($relations)`
+
+The `loadMissing` method attempts to load the missing relationships onto
+the collection.
+
+    $collection->loadMissing('users.comments');
+    $collection->loadMissing('admins');
+
 
 ### The Base Collection
 
