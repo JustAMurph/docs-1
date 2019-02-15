@@ -97,6 +97,14 @@ Otherwise `$key` will be compared to each `Model`'s `Model::getKey()`.
     $users->modelKeys()
     // [1,2,3,4,5]
 
+#### `fresh($with)`
+
+Loads a fresh instance of each `Model` in the collection from the database with the specified
+relationships. 
+
+    $users->fresh();
+    
+    $users->fresh('comments');
 
 ### The Base Collection
 
