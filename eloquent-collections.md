@@ -33,6 +33,22 @@ However, collections are much more powerful than arrays and expose a variety of 
 <a name="available-methods"></a>
 ## Available Methods
 
+### The Eloquent Collection
+`Illuminate\Database\Eloquent\Collection` provides a superset of methods to 
+aid with manipulating your models. These methods are as follows:
+
+#### `find($key)` {#collection-method .first-collection-method}
+
+The `find` method returns the model found within the collection with the given key.
+If `$key` is a model instance, `find` will attempt to return a model matching the primary
+key. If `$key` is an array of keys, `find` will return all models which match 
+the `$keys` using `whereIn()`.
+
+    $users = User::all();
+  
+    $users->find(1);
+
+
 ### The Base Collection
 
 All Eloquent collections extend the base [Laravel collection](/docs/{{version}}/collections) object; therefore, they inherit all of the powerful methods provided by the base collection class:
