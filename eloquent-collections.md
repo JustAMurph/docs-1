@@ -130,7 +130,13 @@ Make attributes which are typically visible hidden.
 Return only unique items from the collection. Unique items are determined
 by `Model::getKey()`.
 
+#### `only($keys)`
 
+Return only the models which contain the specified `$keys`.
+
+#### `except($keys)`
+
+Return only the models which DO NOT contain the specified `$keys`.
 
 
 ### The Base Collection
