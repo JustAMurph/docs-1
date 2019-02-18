@@ -108,7 +108,8 @@ relationships.
     
 #### `getDictionary($items = null)`
 
-Return a dictionary of models key'd by the primary key. 
+Return a dictionary of models key'd by the primary key. If `$items` is passed, will attempt
+to transform them into a dictionary'd array.
 
     $users->getDictionary()
     {
