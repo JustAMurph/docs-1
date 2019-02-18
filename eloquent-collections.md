@@ -138,6 +138,13 @@ Return only the models which contain the specified `$keys`.
 
 Return only the models which DO NOT contain the specified `$keys`.
 
+#### `intersect($items)`
+
+Return all models from `$items` which are also within the current collection.
+
+#### `diff($items)`
+
+Return all models from `$items` which are NOT within the current collection.
 
 ### The Base Collection
 
