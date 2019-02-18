@@ -125,6 +125,13 @@ Make attributes which are typically hidden visible.
 
 Make attributes which are typically visible hidden.
 
+#### `unique($key = null, $strict = false)`
+
+Return only unique items from the collection. Unique items are determined
+by `Model::getKey()`.
+
+
+
 
 ### The Base Collection
 
