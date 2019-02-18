@@ -116,6 +116,15 @@ to transform them into a dictionary'd array.
         1 => User,
         2 => User
     }
+    
+#### `makeVisible($attribues)`
+
+Make attributes which are typically hidden visible.
+
+#### `makeHidden($attributes)`
+
+Make attributes which are typically visible hidden.
+
 
 ### The Base Collection
 
