@@ -41,7 +41,7 @@ some methods return a base Collection instance. Eloquent Collection methods are 
 
 #### `find($key)` {#collection-method .first-collection-method}
 
-The `find` method returns the model found within the collection with the given key.
+Returns the model found within the collection with the given key.
 If `$key` is a model instance, `find` will attempt to return a model matching the primary
 key. If `$key` is an array of keys, `find` will return all models which match 
 the `$keys` using `whereIn()`.
@@ -52,7 +52,7 @@ the `$keys` using `whereIn()`.
 
 #### `load($relations)`
 
-The `load` method attempts to eager load a set of relationships onto each model in the
+Eager load a set of relationships onto each model in the
 collection.
 
     $collection->load('users.comments');
@@ -60,7 +60,7 @@ collection.
 
 #### `loadMissing($relations)`
 
-The `loadMissing` method attempts to load the missing relationships onto each model in
+Load any missing relationships onto each model in
 the collection.
 
     $collection->loadMissing('users.comments');
@@ -68,14 +68,14 @@ the collection.
 
 #### `add($item)`
 
-The `add` method appends the `$item` to the `items` property within the collection.
+Appends the supplied `$item` to the `items` property within the collection.
 
     $result = User::find(1);
     $result->add(User::find(2));
      
 #### `contains($key, $operator = null, $value = null)`
 
-The `contains` method provides a convenient way of checking if a `Model` instance
+Provides a convenient way of checking if a `Model` instance
 is within the collection. 
 
 If all three parameters are passed, this method behaves similar to `Illuminate\Support\Collection`.
@@ -110,8 +110,9 @@ relationships.
     
 #### `getDictionary($items = null)`
 
-Return a dictionary of models key'd by the primary key. If `$items` is passed, will attempt
+Return a dictionary of models key'd by the primary key. If `$items` is passed, it will attempt
 to transform them into a dictionary'd array.
+
     $users = User::all();
     $users->getDictionary()
     {
