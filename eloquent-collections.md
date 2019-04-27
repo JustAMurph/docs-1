@@ -35,7 +35,9 @@ However, collections are much more powerful than arrays and expose a variety of 
 
 ### The Eloquent Collection
 `Illuminate\Database\Eloquent\Collection` provides a superset of methods to 
-aid with manipulating your models. These methods are as follows:
+aid with managing your model collection. Methods use `Model::getKey()` for manipulating
+the collection. Most methods return a Collection of `Illuminate\Database\Eloquent\Collection`, however
+some methods return a base Collection instance. Eloquent Collection methods are as follows:
 
 #### `find($key)` {#collection-method .first-collection-method}
 
@@ -50,15 +52,15 @@ the `$keys` using `whereIn()`.
 
 #### `load($relations)`
 
-The `load` method attempts to eager load a set of relationships onto the 
-existing collection.
+The `load` method attempts to eager load a set of relationships onto each model in the
+collection.
 
     $collection->load('users.comments');
     $collection->load('users', 'admins');
 
 #### `loadMissing($relations)`
 
-The `loadMissing` method attempts to load the missing relationships onto
+The `loadMissing` method attempts to load the missing relationships onto each model in
 the collection.
 
     $collection->loadMissing('users.comments');
@@ -78,7 +80,7 @@ is within the collection.
 
 If all three parameters are passed, this method behaves similar to `Illuminate\Support\Collection`.
 
-If `$key` is passed, the following occurs:
+If only `$key` is passed, the following occurs:
 
 If `$key` is an instance of a model, `contains`
 will compare the `$key` to each `Model` in the collection using `Model::is()`. 
@@ -94,7 +96,7 @@ Otherwise `$key` will be compared to each `Model`'s `Model::getKey()`.
 
 `modelKeys` returns all primary keys found within the collection. Uses: `Model::getKey()`.
 
-    $users->modelKeys()
+    $users->modelKeys();
     // [1,2,3,4,5]
 
 #### `fresh($with)`
@@ -110,7 +112,7 @@ relationships.
 
 Return a dictionary of models key'd by the primary key. If `$items` is passed, will attempt
 to transform them into a dictionary'd array.
-
+    $users = User::all();
     $users->getDictionary()
     {
         1 => User,
@@ -119,24 +121,24 @@ to transform them into a dictionary'd array.
     
 #### `makeVisible($attribues)`
 
-Make attributes which are typically hidden visible.
+Make attributes which are typically hidden visible on each model in the collection.
 
 #### `makeHidden($attributes)`
 
-Make attributes which are typically visible hidden.
+Make attributes which are typically visible hidden on each model in the collection.
 
 #### `unique($key = null, $strict = false)`
 
 Return only unique items from the collection. Unique items are determined
-by `Model::getKey()`.
+by the primary key using: `Model::getKey()`.
 
 #### `only($keys)`
 
-Return only the models which contain the specified `$keys`.
+Return only the models which contain the specified primary keys `$keys`.
 
 #### `except($keys)`
 
-Return only the models which DO NOT contain the specified `$keys`.
+Return only the models which DO NOT contain the specified primary keys `$keys`.
 
 #### `intersect($items)`
 
